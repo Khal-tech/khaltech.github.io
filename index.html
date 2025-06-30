@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== FONT AWESOME ICONS ===============-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!--=============== CSS BOOTSTRAP ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+        <title>Casque Gaming ASTRO A10 (Xbox, Playstation, Switch) | Khaltech K</title>
+    </head>
+    <body>
+        <!--=============== HEADER ===============-->
+        <header class="header" id="header">
+            <nav class="nav conteneur">
+                <img src="assets/img/logo.png" alt="khaltech K" class="nav__logo">
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">Accueil</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#specs" class="nav__link">Spécifications</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#case" class="nav__link">Étui</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#products" class="nav__link">Styles</a>
+                        </li>
+                        <li class="nav__item">
+                            <div class="icon-cart">
+                                <a href="#" class="nav__link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="staticBackdrop">
+                                    <i class="fa fa-cart-shopping fs-4"></i>
+                                </a>
+                                
+                                <span id="num_panier">0</span>
+                            </div>
+                        </li>
+
+                        <!--=============== OFFCANVAS PANIER ===============-->
+
+                            <div class="offcanvas background-dark offcanvas-end px-2" data-bs-theme="dark" data-bs-backdrop="static" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" onload = "table();">
+                                <div class="d-flex justify-content-between m-3">
+                                    <h3 class="offcanvas-title" id="offcanvasRightLabel">Panier <i class="fa fa-cart-shopping"></i></h3>
+                                    <button type="button" class="btn-close btn-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body" id="panier">
+                                    <table class="table table-hover text-center">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col">Nom d'article</th>
+                                                <th scope="col">Prix</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <p class="text-light"><a href="admin/index.html">Inscrivez-vous</a> pour gérer votre panier !</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                
+                                    </table>
+                                    <div class="d-flex justify-content-end">
+                                        <p class="fw-bold">Total  $0</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <!--=============== OFFCANVAS PANIER ===============-->
+                        
+                        <li class="nav__item drop">
+                            <a class="nav__link" type="button" id="DropDownOfflineProfile" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-sharp fa-user fs-4"></i>
+                            </a>
+                            <ul class="dropdown-menu bg-light" aria-labelledby="DropDownOfflineProfile">
+                                    <div class="px-3">
+
+                                        <div>
+                                            <div class="text-center pt-2 mb-3">
+                                                <i class="fa fa-sharp fa-user fs-1 bg-secondary border border-2 rounded-circle" style="color: #fff !important; border-radius : 50% !important; width: 4rem !important; height: 4rem !important; line-height: 3.5rem !important;"></i>
+                                            </div>
+                                            <h5 class="text text-dark text-center text-capitalize"></h5>
+                                            <p class="text text-dark text-center text-center text-lowercase"></p>
+                                            <div class="d-flex justify-content-center">
+                                                <span role="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Modes de paiements">
+                                                    <i class="fa fa-credit-card-alt text-success mx-1 bg-dark border rounded-circle fs-6" type="button" data-bs-toggle="modal" data-bs-target="#PayementMethods" style="width: 2rem !important; height: 2rem !important; text-align: center !important; line-height: 1.9rem !important;"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                            
+
+                                <div class="px-3 py-4 text-center">
+                                    <h5 class="text text-dark">Vous n'êtes pas connecté :(	</h5>
+                                    <a class="nav-link text-primary fw-bold fs-6 d-inline" href="admin/index.html"><i class="ri ri-login-box-line"></i> Se connecter</a>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="menu">        
+                    <li class="nav__item mx-2">
+                        <a class="nav__toggle profile" type="button" id="DropDownOnlineProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            <i class="fa fa-sharp fa-user fs-5"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-secondary-emphasis" aria-labelledby="DropDownOfflineProfile">
+                               
+                                    <div class="px-3">
+
+                                        <div>
+                                            <div class="text-center pt-2 mb-3">
+                                                <i class="fa fa-sharp fa-user fs-1 bg-secondary border border-2 rounded-circle" style="color: #fff !important; border-radius : 50% !important; width: 4rem !important; height: 4rem !important; line-height: 3.5rem !important;"></i>
+                                            </div>
+                                            <h5 class="text text-dark text-center text-capitalize"></h5>
+                                            <p class="text text-dark text-center text-center text-lowercase"></p>
+                                            <div class="d-flex justify-content-center">
+                                                <span role="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Modes de paiements">
+                                                    <i class="fa fa-credit-card-alt text-success mx-1 bg-dark border rounded-circle fs-6" type="button" data-bs-toggle="modal" data-bs-target="#PayementMethods" style="width: 2rem !important; height: 2rem !important; text-align: center !important; line-height: 1.9rem !important;"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                
+
+                                <div class="px-3 py-4 text-center">
+                                    <h5 class="text text-dark">Vous n'êtes pas connecté :(	</h5>
+                                    <a class="nav-link text-primary fw-bold fs-6 d-inline" href="admin/index.html"><i class="ri ri-login-box-line"></i> Se connecter</a>
+                                </div>
+                               
+                            </ul>
+                    </li>
+
+                    <li class="nav__toggle" id="nav-toggle">
+                        <i class="fa fa-gamepad"></i>
+                    </li>
+                </div>
+                
+            </nav>
+        </header>
+
+        <main class="main">
+            <!--=============== HOME ===============-->
+            <section class="home section" id="home">
+                <div class="home__container conteneur grid">
+                    <div>
+                        <img src="assets/img/home.png" alt="" class="home__img">
+                    </div>
+
+                    
+                    
+                    <div class="home__data">
+                        <div class="home__header">
+                            <p>ASTRO SERIES</p>
+                            <h1 class="home__subtitle fs-1 fw-bold" style="filter: drop-shadow(2px 1px 1px #000) !important;">ASTRO A10</h1>
+                        </div>
+                        <form action="" method="post">
+
+                            
+
+                            <div class="home__footer">
+                                <h3 class="home__title-description">Aperçu</h3>
+                                <p class="home__description">
+                                    Casque gaming filaire pour Xbox Series X|S, PlayStation 5, Switch, PC/MAC et bien plus encore.
+                                </p>
+                                    <a href="#products" class="button button--flex">
+                                        <span class="button--flex ">
+                                            <i class="ri-shopping-bag-line button__icon"></i> Obtenez maintenant
+                                            <span class="home__price">$69</span>
+                                        </span>
+                                        <span class="text-decoration-line-through text-danger fw-bold">$79</span>
+                                    </a>
+
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+            <!--=============== SPONSOR ===============-->
+            <section class="sponsor section">
+                <div class="sponsor__container conteneur grid">
+                    <img src="assets/img/sponsor1.png" alt="logitech" class="sponsor__img">
+                    <img src="assets/img/sponsor2.png" alt="astro" class="sponsor__img">
+                    <img src="assets/img/sponsor3.png" alt="jaybird" class="sponsor__img">
+                    <img src="assets/img/sponsor4.png" alt="ultimate" class="sponsor__img">
+                </div>
+            </section>
+
+            <!--=============== SPECS ===============-->
+            <section class="specs section grid" id="specs">
+                <h2 class="section__title section__title-gradient">Spécifications</h2>
+
+                <div class="specs__container conteneur grid">
+                    <div class="specs__content grid">
+                        <div class="specs__data">
+                            <i class="ri-links-fill"></i>
+                            <h3 class="specs__title">Connexion</h3>
+                            <span class="specs__subtitle">Jack 3,5 mm à 5 pôles</span>
+                        </div>
+    
+                        <div class="specs__data">
+                            <i class="fa fa-ear-listen"></i>
+                            <h3 class="specs__title">Couplage d'oreille</h3>
+                            <span class="specs__subtitle">Contour d'oreille</span>
+                        </div>
+    
+                        <div class="specs__data">
+                            <i class="fa fa-headset"></i>
+                            <h3 class="specs__title">Pilotes</h3>
+                            <span class="specs__subtitle">Néodynamique 33 mm</span>
+                        </div>
+    
+                        <div class="specs__data">
+                            <i class="ri-mic-line specs__icon"></i>
+                            <h3 class="specs__title">Microphone</h3>
+                            <span class="specs__subtitle">Microphone unidirectionnel 6 mm</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <img src="assets/img/specs.png" alt="" class="specs__img">
+                    </div>
+                </div>
+            </section>
+
+            <!--=============== CASE ===============-->
+            <section class="case section grid" id="case">
+                    <h2 class="section__title section__title-gradient">Étui</h2>
+
+                    <div class="case__container conteneur grid">
+                        <div>
+                            <img src="assets/img/case.png" alt="" class="case__img">
+                        </div>
+
+                        <div class="case__data">
+                            <p class="case__description">
+                                Avec un étui confortable et adaptable pour que vous puissiez le ranger quand vous le souhaitez et conserver sa durabilité pour toujours.
+                            </p>
+                            <a href="#" class="button button--flex" data-bs-toggle="modal" data-bs-target="#CaseModal">
+                                <i class="ri-information-line button__icon"></i> Plus d'infos
+                            </a>
+                        </div>
+                    </div>
+            </section>
+
+            <!--=============== DISCOUNT ===============-->
+            <section class="discount section">
+                <div class="discount__container conteneur grid">
+                    <div class="discount__animate">
+                        <h2 class="discount__title">Immergez-vous <br> dans votre jeu</h2>
+                        <p class="discount__description">Jusqu'à 30% de réduction ! <br> (+ Étui Astro)</p>
+                        <a href="#" class="button button--flex" data-bs-toggle="modal" data-bs-target="#DiscountModal">
+                            <i class="ri-shopping-bag-line button__icon"></i> Achetez
+                        </a>
+                    </div>
+
+                    <img src="assets/img/discount.png" alt="" class="discount__img">
+                </div>
+            </section>
+
+            <!--=============== PRODUCTS ===============-->
+            <section class="products section" id="products">
+                <h2 class="section__title section__title-gradient products__line">
+                    Choisissez <br> Votre Style
+                </h2>
+
+                <div class="products__container conteneur grid">
+                    <article class="products__card">
+                        <div class="products__content">
+                            <img src="assets/img/product1.png" alt="" class="products__img">
+    
+                            <h3 class="products__title">Noir</h3>
+                            <span class="products__price">$69</span>
+    
+                            <button class="button button--flex products__button" type="button" data-bs-toggle="modal" data-bs-target="#HeadsetModal1">
+                                <i class="ri-shopping-bag-line button__icon"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="products__card">
+                        <div class="products__content">
+                            <img src="assets/img/product2.png" alt="" class="products__img">
+    
+                            <h3 class="products__title">Blanc</h3>
+                            <span class="products__price">$69</span>
+    
+                            <button class="button button--flex products__button" type="button" data-bs-toggle="modal" data-bs-target="#HeadsetModal2">
+                                <i class="ri-shopping-bag-line button__icon"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="products__card">
+                        <div class="products__content">
+                            <img src="assets/img/product3.png" alt="" class="products__img">
+    
+                            <h3 class="products__title">Gris</h3>
+                            <span class="products__price">$69</span>
+    
+                            <button class="button button--flex products__button" type="button" data-bs-toggle="modal" data-bs-target="#HeadsetModal3">
+                                <i class="ri-shopping-bag-line button__icon"></i>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="products__card">
+                        <div class="products__content">
+                            <img src="assets/img/product4.png" alt="" class="products__img">
+    
+                            <h3 class="products__title">Lilac</h3>
+                            <span class="products__price">$69</span>
+    
+                            <button class="button button--flex products__button" type="button" data-bs-toggle="modal" data-bs-target="#HeadsetModal4">
+                                <i class="ri-shopping-bag-line button__icon"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="products__card">
+                        <div class="products__content">
+                            <img src="assets/img/product5.png" alt="" class="products__img">
+    
+                            <h3 class="products__title">Mint</h3>
+                            <span class="products__price">$69</span>
+    
+                            <button class="button button--flex products__button" type="button" data-bs-toggle="modal" data-bs-target="#HeadsetModal5">
+                                <i class="ri-shopping-bag-line button__icon"></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!--=============== FOOTER ===============-->
+            <footer class="footer section">
+                <div class="footer__container mx-auto">
+        
+                    <div class="footer__content">
+
+                        <form action="" method="post" class="footer__form container">
+
+                            <input type="email" name="email" placeholder="Service Client" class="footer__input" required>
+                            <button class="button button--flex" type="submit" name="submit_email">
+                                <i class="ri-message-2-line button__icon"></i> Contact
+                            </button>
+
+                        </form>
+        
+                        <div class="footer__social d-flex justify-content-center">
+                            <a href="https://wa.me/0609060825" target="_blank" class="footer__social-link">
+                                <i class="ri-whatsapp-line"></i>
+                            </a>
+                            <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer__copy">
+                    <p class="footer__copy-link">&#169; Khaltech. Tous droits réservés</p>
+                </div>
+            </footer>
+        <!--=============== FOOTER ===============-->
+
+        <!--=============== MODAL CASE ===============-->
+            <div class="modal modal-lg fade" id="CaseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header mx-2">
+                            <h1 class="modal-title fs-5 text-black" id="exampleModalLabel">Étui ASTRO</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body row case_modal">
+                            <div class="col-7">
+                                <img src="assets/img/case_opened.png" alt="" class="img img-fluid">
+                            </div>
+
+                            <div class="col-5">
+
+                                <h5 class="text text-dark fw-bold d-inline">DÉTAILS</h5>
+                                <p class="text text-dark mt-2">
+                                    Un étui rigide avec fermeture à zip,
+                                    parfait pour protéger votre casque de jeu A40, A20 ou A10. 
+                                    L'étui peut également contenir le MixAmp 4e génération.
+                                </p>
+
+                                <h5 class="text text-dark fw-bold d-inline">INFORMATIONS SUR LA GARANTIE</h5>
+                                <p class="text text-dark mt-2">
+                                    2 ans de garantie matérielle limitée.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--=============== MODAL CASE ===============-->
+
+        <!--=============== MODAL DISCOUNT ===============-->
+            <div class="modal modal-lg fade" data-bs-theme="dark" id="DiscountModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content background-dark">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Réduction !!!</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12 d-flex justify-content-center align-items-center">
+                                <img src="assets/img/product-1.png" alt="" class="img img-fluid w-50">
+                                <i class="fa fa-plus fs-4 pe-4 fw-bold"></i>
+                                <img src="assets/img/case.png" alt="" class="img img-fluid w-25">
+                            </div>
+                            <div>
+                                <h4 class="text fw-bold d-inline">Jusqu'à 30%</h4>
+                                <p class="mt-3">
+                                    Obtenez maintenant le casque Astro A10 Gen2 Noir + Astro Étui avec 30% de réduction.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="" method="post">
+                                    
+                                <input type="hidden" name="product">
+                                <input type="hidden" name="price">
+
+
+                                <input type="number" name="quantity" class="bg-light text-dark" style="width: 50px !important;" min="1" value="1">                                
+                                <button type="submit" name="submit_panier" class="button button--flex">
+                                    <span class="button--flex">
+                                        <i class="ri-shopping-bag-line button__icon"></i></i> Ajoutez au Panier
+                                    </span>
+                                    <span class="home__price">$69</span>
+                                </button>                   
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--=============== MODAL DISCOUNT ===============-->
+            
+        <!--=============== MODAL HEADSETS ===============-->
+        
+            <!-- BLACK HEADSET -->
+                <div class="modal modal-lg fade" data-bs-theme="dark" id="HeadsetModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content background-dark">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">ASTRO A10 Noir</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body row modal_headset">
+                                <div class="col-6 m-auto">
+                                    
+                                    <img src="assets/img/product-1.png" alt="" class="img img-fluid w-100 py-2">
+
+                                </div>
+                                <div class="d-flex justify-content-center col-6 accordion_headset text-center my-auto">
+                                    <div class="accordion col-10 d-block" id="Black">
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneBlack" aria-expanded="true" aria-controls="collapseOneBlack">
+                                                    Caractéristiques techniques et physiques
+                                                </button>
+                                            </h5>
+                                            <div id="collapseOneBlack" class="accordion-collapse collapse show" data-bs-parent="#Black">
+                                                <div class="accordion-body">
+                                                    <p class="text text-white" style="font-size: 0.75rem !important;">
+                                                        Microphone: Microphone unidirectionnel 6 mm <br>
+                                                        Couplage d'oreille: Contour d'oreille <br>
+                                                        Connexion: Jack 3,5 mm à 5 pôles <br>
+                                                        Pilotes: Néodynamique 33 mm <br>
+                                                        Pression du bandeau: 3,5 N <br>
+                                                        Poids sans câble: 246 grammes <br>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeBlack" aria-expanded="false" aria-controls="collapseThreeBlack">
+                                                    Spécifications techniques
+                                                </button>
+                                            </h5>
+                                            <div id="collapseThreeBlack" class="accordion-collapse collapse" data-bs-parent="#Black">
+                                                <div class="accordion-body">
+                                                    <p style="font-size: 0.75rem !important;">
+                                                        Réponse en fréquence: 20-20 000 Hz <br>
+                                                        Distorsion: < 1% @1mW 20-10 kHz <br>
+                                                        Sensibilité: 102 dB SPL/mW @1 kHz <br>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourBlack" aria-expanded="false" aria-controls="collapseFourBlack">
+                                                    Informations sur la garantie
+                                                </button>
+                                            </h5>
+                                            <div id="collapseFourBlack" class="accordion-collapse collapse" data-bs-parent="#Black">
+                                                <div class="accordion-body">
+                                                    <p style="font-size: 0.75rem !important;">
+                                                        2 ans de garantie matérielle limitée.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <form action="" method="post">
+                                        <input type="hidden" name="product">
+                                        <input type="hidden" name="price">
+
+                                        <input type="number" name="quantity" class="bg-light text-dark" style="width: 50px !important;" min="1" value="1">
+                                        <button type="submit" name="submit_panier" class="button button--flex">
+                                            <span class="button--flex">
+                                                <i class="ri-shopping-bag-line button__icon"></i></i> Ajoutez au Panier
+                                            </span>
+                                            <span class="home__price">$69</span>
+                                        </button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            <!-- BLACK HEADSET -->
+
+            
+            <!-- WHITE HEADSET -->
+                <div class="modal modal-lg fade" data-bs-theme="dark" id="HeadsetModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content background-dark">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">BASTRO A10 lanc</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body row modal_headset">
+                                <div class="col-6 m-auto">
+                                    
+                                    <img src="assets/img/product-2.png" alt="" class="img img-fluid w-100 py-2">
+
+                                </div>
+                                <div class="d-flex justify-content-center col-6 accordion_headset text-center my-auto">
+                                    <div class="accordion col-10 d-block" id="White">
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneWhite" aria-expanded="true" aria-controls="collapseOneWhite">
+                                                    Caractéristiques techniques et physiques
+                                                </button>
+                                            </h5>
+                                            <div id="collapseOneWhite" class="accordion-collapse collapse show" data-bs-parent="#White">
+                                                <div class="accordion-body">
+                                                    <p class="text text-white" style="font-size: 0.75rem !important;">
+                                                        Microphone: Microphone unidirectionnel 6 mm <br>
+                                                        Couplage d'oreille: Contour d'oreille <br>
+                                                        Connexion: Jack 3,5 mm à 5 pôles <br>
+                                                        Pilotes: Néodynamique 33 mm <br>
+                                                        Pression du bandeau: 3,5 N <br>
+                                                        Poids sans câble: 246 grammes <br>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeWhite" aria-expanded="false" aria-controls="collapseThreeWhite">
+                                                    Spécifications techniques
+                                                </button>
+                                            </h5>
+                                            <div id="collapseThreeWhite" class="accordion-collapse collapse" data-bs-parent="#White">
+                                                <div class="accordion-body">
+                                                    <p style="font-size: 0.75rem !important;">
+                                                        Réponse en fréquence: 20-20 000 Hz <br>
+                                                        Distorsion: < 1% @1mW 20-10 kHz <br>
+                                                        Sensibilité: 102 dB SPL/mW @1 kHz <br>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourWhite" aria-expanded="false" aria-controls="collapseFourWhite">
+                                                    Informations sur la garantie
+                                                </button>
+                                            </h5>
+                                            <div id="collapseFourWhite" class="accordion-collapse collapse" data-bs-parent="#White">
+                                                <div class="accordion-body">
+                                                    <p style="font-size: 0.75rem !important;">
+                                                        2 ans de garantie matérielle limitée.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <form action="" method="post">
+                                        <input type="hidden" name="product">
+                                        <input type="hidden" name="price">
+
+                                        
+                                        <input type="number" name="quantity" class="bg-light text-dark" style="width: 50px !important;" min="1" value="1">                                
+                                        <button type="submit" name="submit_panier" class="button button--flex">
+                                            <span class="button--flex">
+                                                <i class="ri-shopping-bag-line button__icon"></i></i> Ajoutez au Panier
+                                            </span>
+                                            <span class="home__price">$69</span>
+                                        </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            <!-- WHITE HEADSET -->
+
+            <!-- GREY HEADSET -->
+                <div class="modal modal-lg fade" data-bs-theme="dark" id="HeadsetModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content background-dark">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">ASTRO A10 Gris</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body row modal_headset">
+                                <div class="col-6 m-auto">
+                                    
+                                    <img src="assets/img/product-3.png" alt="" class="img img-fluid w-100 py-2">
+
+                                </div>
+                                <div class="d-flex justify-content-center col-6 accordion_headset text-center my-auto">
+                                    <div class="accordion col-10 d-block" id="Grey">
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneGrey" aria-expanded="true" aria-controls="collapseOneGrey">
+                                                    Caractéristiques techniques et physiques
+                                                </button>
+                                            </h5>
+                                            <div id="collapseOneGrey" class="accordion-collapse collapse show" data-bs-parent="#Grey">
+                                                <div class="accordion-body">
+                                                    <p class="text text-white" style="font-size: 0.75rem !important;">
+                                                        Microphone: Microphone unidirectionnel 6 mm <br>
+                                                        Couplage d'oreille: Contour d'oreille <br>
+                                                        Connexion: Jack 3,5 mm à 5 pôles <br>
+                                                        Pilotes: Néodynamique 33 mm <br>
+                                                        Pression du bandeau: 3,5 N <br>
+                                                        Poids sans câble: 246 grammes <br>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeGrey" aria-expanded="false" aria-controls="collapseThreeGrey">
+                                                    Spécifications techniques
+                                                </button>
+                                            </h5>
+                                            <div id="collapseThreeGrey" class="accordion-collapse collapse" data-bs-parent="#Grey">
+                                                <div class="accordion-body">
+                                                    <p style="font-size: 0.75rem !important;">
+                                                        Réponse en fréquence: 20-20 000 Hz <br>
+                                                        Distorsion: < 1% @1mW 20-10 kHz <br>
+                                                        Sensibilité: 102 dB SPL/mW @1 kHz <br>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourGrey" aria-expanded="false" aria-controls="collapseFourGrey">
+                                                    Informations sur la garantie
+                                                </button>
+                                            </h5>
+                                            <div id="collapseFourGrey" class="accordion-collapse collapse" data-bs-parent="#Grey">
+                                                <div class="accordion-body">
+                                                    <p style="font-size: 0.75rem !important;">
+                                                        2 ans de garantie matérielle limitée.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="" method="post">
+
+                                    <input type="hidden" name="product">
+                                        <input type="hidden" name="price">
+
+                                        
+                                        <input type="number" name="quantity" class="bg-light text-dark" style="width: 50px !important;" min="1" value="1">                                
+                                        <button type="submit" name="submit_panier" class="button button--flex">
+                                            <span class="button--flex">
+                                                <i class="ri-shopping-bag-line button__icon"></i></i> Ajoutez au Panier
+                                            </span>
+                                            <span class="home__price">$69</span>
+                                        </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            <!-- GREY HEADSET -->
+
+            <!-- LILAC HEADSET -->
+                <div class="modal modal-lg fade" data-bs-theme="dark" id="HeadsetModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content background-dark">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">LASTRO A10 ilac</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body row modal_headset">
+                                <div class="col-6 m-auto">
+                                    
+                                    <img src="assets/img/product-4.png" alt="" class="img img-fluid w-100 py-2">
+
+                                </div>
+                                <div class="d-flex justify-content-center col-6 accordion_headset text-center my-auto">
+                                    <div class="accordion col-10 d-block" id="Lilac">
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneLilac" aria-expanded="true" aria-controls="collapseOneLilac">
+                                                    Caractéristiques techniques et physiques
+                                                </button>
+                                            </h5>
+                                            <div id="collapseOneLilac" class="accordion-collapse collapse show" data-bs-parent="#Lilac">
+                                                <div class="accordion-body">
+                                                    <p class="text text-white" style="font-size: 0.75rem !important;">
+                                                        Microphone: Microphone unidirectionnel 6 mm <br>
+                                                        Couplage d'oreille: Contour d'oreille <br>
+                                                        Connexion: Jack 3,5 mm à 5 pôles <br>
+                                                        Pilotes: Néodynamique 33 mm <br>
+                                                        Pression du bandeau: 3,5 N <br>
+                                                        Poids sans câble: 246 grammes <br>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeLilac" aria-expanded="false" aria-controls="collapseThreeLilac">
+                                                    Spécifications techniques
+                                                </button>
+                                            </h5>
+                                            <div id="collapseThreeLilac" class="accordion-collapse collapse" data-bs-parent="#Lilac">
+                                                <div class="accordion-body">
+                                                    <p style="font-size: 0.75rem !important;">
+                                                        Réponse en fréquence: 20-20 000 Hz <br>
+                                                        Distorsion: < 1% @1mW 20-10 kHz <br>
+                                                        Sensibilité: 102 dB SPL/mW @1 kHz <br>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourLilac" aria-expanded="false" aria-controls="collapseFourLilac">
+                                                    Informations sur la garantie
+                                                </button>
+                                            </h5>
+                                            <div id="collapseFourLilac" class="accordion-collapse collapse" data-bs-parent="#Lilac">
+                                                <div class="accordion-body">
+                                                    <p style="font-size: 0.75rem !important;">
+                                                        2 ans de garantie matérielle limitée.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <form action="" method="post">
+                                        <input type="hidden" name="product">
+                                        <input type="hidden" name="price">
+
+                                        
+                                        <input type="number" name="quantity" class="bg-light text-dark" style="width: 50px !important;" min="1" value="1">                                
+                                        <button type="submit" name="submit_panier" class="button button--flex">
+                                            <span class="button--flex">
+                                                <i class="ri-shopping-bag-line button__icon"></i></i> Ajoutez au Panier
+                                            </span>
+                                            <span class="home__price">$69</span>
+                                        </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            <!-- LILAC HEADSET -->
+                
+            <!-- MINT HEADSET -->
+                <div class="modal modal-lg fade" data-bs-theme="dark" id="HeadsetModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content background-dark">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">ASTRO A10 Mint</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body row modal_headset">
+                                <div class="col-6 m-auto">
+                                    
+                                    <img src="assets/img/product-5.png" alt="" class="img img-fluid w-100 py-2">
+
+                                </div>
+                                <div class="d-flex justify-content-center col-6 accordion_headset text-center my-auto">
+                                    <div class="accordion col-10 d-block" id="Mint">
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneMint" aria-expanded="true" aria-controls="collapseOneMint">
+                                                    Caractéristiques techniques et physiques
+                                                </button>
+                                            </h5>
+                                            <div id="collapseOneMint" class="accordion-collapse collapse show" data-bs-parent="#Mint">
+                                                <div class="accordion-body">
+                                                    <p class="text text-white" style="font-size: 0.75rem !important;">
+                                                        Microphone: Microphone unidirectionnel 6 mm <br>
+                                                        Couplage d'oreille: Contour d'oreille <br>
+                                                        Connexion: Jack 3,5 mm à 5 pôles <br>
+                                                        Pilotes: Néodynamique 33 mm <br>
+                                                        Pression du bandeau: 3,5 N <br>
+                                                        Poids sans câble: 246 grammes <br>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeMint" aria-expanded="false" aria-controls="collapseThreeMint">
+                                                    Spécifications techniques
+                                                </button>
+                                            </h5>
+                                            <div id="collapseThreeMint" class="accordion-collapse collapse" data-bs-parent="#Mint">
+                                                <div class="accordion-body">
+                                                    <p style="font-size: 0.75rem !important;">
+                                                        Réponse en fréquence: 20-20 000 Hz <br>
+                                                        Distorsion: < 1% @1mW 20-10 kHz <br>
+                                                        Sensibilité: 102 dB SPL/mW @1 kHz <br>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h5 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_header" style="font-size: 0.8rem !important;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourMint" aria-expanded="false" aria-controls="collapseFourMint">
+                                                    Informations sur la garantie
+                                                </button>
+                                            </h5>
+                                            <div id="collapseFourMint" class="accordion-collapse collapse" data-bs-parent="#Mint">
+                                                <div class="accordion-body">
+                                                    <p style="font-size: 0.75rem !important;">
+                                                        2 ans de garantie matérielle limitée.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <form action="" method="post">
+                                        <input type="hidden" name="product">
+                                        <input type="hidden" name="price">
+
+
+                                        <input type="number" name="quantity" class="bg-light text-dark" style="width: 50px !important;" min="1" value="1">                                
+                                        <button type="submit" name="submit_panier" class="button button--flex">
+                                            <span class="button--flex">
+                                                <i class="ri-shopping-bag-line button__icon"></i></i> Ajoutez au Panier
+                                            </span>
+                                            <span class="home__price">$69</span>
+                                        </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- MINT HEADSET -->
+
+        <!--=============== MODAL HEADSETS ===============-->
+
+
+        <!--=============== MODAL PAYEMENT METHODS ===============-->
+            <div class="modal fade" id="PayementMethods" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title text-dark fs-5" id="exampleModalLabel">Methodes de paiement</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex justify-content-evenly">
+                                <div>
+                                    <img src="assets/img/Payement_MasterCard.png" class="payement_methods w-25 mt-2" style="width: 3.5rem !important;" alt="">
+                                </div>
+                                <div>
+                                    <img src="assets/img/Payement_PayPal.png" class="payement_methods w-25" style="width: 3.5rem !important;" alt="">
+                                </div>
+                                <div>
+                                    <img src="assets/img/Payement_Visa.png" class="payement_methods w-25 my-4" style="width: 3.5rem !important;" alt="">
+                                </div>
+                                <div>
+                                    <img src="assets/img/Payement_CashOnDelivery.png" class="payement_methods w-25" style="width: 3.5rem !important;" alt="">
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <h6 class="text text-success"><i class="fa fa-lock"></i> Paiement 100 % sécurisé</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--=============== MODAL PAYEMENT METHODS ===============-->
+
+
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-s-line scrollup__icon"></i>
+        </a>
+        
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/style.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+        <script>
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        </script>
+    </body>
+</html>
